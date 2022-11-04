@@ -5,9 +5,8 @@ import '../App.css'
 function Nav() {
   return (
     <div className="navbar">
-      <Link to ="/">Home</Link>
-      <Link to ="/MoreImages">More Images</Link>
-
+      <Link to ="/" className="navLink">Home</Link>
+      <Link to ="/MoreImages" className="navLink">More Images</Link>
     </div>
   )
 }

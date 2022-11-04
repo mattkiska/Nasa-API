@@ -1,49 +1,73 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import TextField from "@mui/material/TextField";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
+const nasaEndpoint = process.env.REACT_APP_NASA_ENDPOINT;
+const nasaApiKey = process.env.REACT_APP_NASA_API_KEY;
 
 function Details() {
+  // Create state for our data
+  const [details, setDetails] = useState(null);
+  const [date, setDate] = useState("2022-10-10");
 
-// Create state for our data
-const [details, setDetails] = useState({})
-let { index } = useParams()
+  // Call axios function
 
-// Call axios function
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(
+        `${nasaEndpoint}planetary/apod?api_key=${nasaApiKey}&date=${date}`
+      );
+      setDetails(response.data);
+    };
 
-useEffect(()=> {
-  const getData = async () =>{
-  const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=qScrjgfg2SmiWnkoTft6brV7Q8DeTfgFNYy86LlN`)
-  console.log(response.data)
-  // Set state of Data
-  setDetails(response.data)
-  }
-  getData()
-},[details, index])
+    getData();
+  }, [date]);
 
+  // const handleChange = (event) => {
+  //   setDate(event.target.value);
 
-// see the data
-console.log(details)
+  //   console.log(event.target.value);
+  // };
 
-// Call Guard operator to protect from loading errors
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   setDate(...date, event.target.value);
+  // };
+  // Call Guard operator to protect from loading errors
 
-if (!details){
-  return <h2> Loading please wait</h2>
-} else {
-  return (
-    <div>
-      <h2>Todays Image</h2>
-      <input type="date" className="imageSearch" placeholder="Choose a Date"/>
-      <div className="image-container">
-        <div>
-          <img src={`${details.url}`} alt="Image" height="300" width="400"/>
-      </div>
-        <div>
-          <img src={`${details.url}`} alt="image" height="300" width="400"/>
+  if (!details) {
+    return <h2> Loading please wait</h2>;
+  } else {
+    return (
+      <div>
+        <h2></h2>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              label="Enter Date"
+              value={date}
+              onChange={(date) => {
+                setDate(date.format('YYYY-MM-DD').toString());
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+        <div className="image-container">
+          <div>
+            <h2>{details.title}</h2>
+            <img src={`${details.url}`} alt="image" height="400" width="650" />
+            <p>{details.explanation}</p>
+            <p>Copyright: {details.copyright} {details.date}</p>
+            
+          </div>
         </div>
+        
       </div>
-    </div>
-  )}
+    );
+  }
 }
 
-export default Details
+export default Details;

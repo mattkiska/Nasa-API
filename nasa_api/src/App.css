@@ -9,14 +9,18 @@ html {
   justify-content: space-evenly;
   font-size: 25px;
 }
-.navbar:link {
+.navLink {
   text-decoration: none;
+  color: blue;
+  font-weight: bolder;
+}
+.navLink:hover {
+  color: red
 }
 .footer{
-  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
+  height: 2rem;
 }
 .header{
   background-color: darkgray;
