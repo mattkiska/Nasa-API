@@ -1,5 +1,6 @@
 html {
   background-color: darkslateblue;
+  font-family: 'Space Mono', monospace;
 }
 .App {
   text-align: center;
@@ -13,6 +14,8 @@ html {
   text-decoration: none;
   color: blue;
   font-weight: bolder;
+  font-family: 'Space Mono', monospace;
+
 }
 .navLink:hover {
   color: red
@@ -21,9 +24,12 @@ html {
   bottom: 0;
   width: 100%;
   height: 2rem;
+  font-family: 'Space Mono', monospace;
+  
 }
 .header{
   background-color: darkgray;
+  font-family: 'Space Mono', monospace;
 }
 .image-container {
   margin: 30px;

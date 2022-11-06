@@ -12,7 +12,7 @@ const nasaApiKey = process.env.REACT_APP_NASA_API_KEY;
 function Details() {
   // Create state for our data
   const [details, setDetails] = useState(null);
-  const [date, setDate] = useState("2022-10-10");
+  const [date, setDate] = useState("2022-05-01");
 
   // Call axios function
 
@@ -27,16 +27,6 @@ function Details() {
     getData();
   }, [date]);
 
-  // const handleChange = (event) => {
-  //   setDate(event.target.value);
-
-  //   console.log(event.target.value);
-  // };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setDate(...date, event.target.value);
-  // };
   // Call Guard operator to protect from loading errors
 
   if (!details) {
@@ -45,26 +35,26 @@ function Details() {
     return (
       <div>
         <h2></h2>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              label="Enter Date"
-              value={date}
-              onChange={(date) => {
-                setDate(date.format('YYYY-MM-DD').toString());
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            label="Enter Date"
+            value={date}
+            onChange={(date) => {
+              setDate(date.format("YYYY-MM-DD").toString());
+            }}
+            renderInput={(params) => <TextField {...params} />}
+          />
+        </LocalizationProvider>
         <div className="image-container">
           <div>
             <h2>{details.title}</h2>
             <img src={`${details.url}`} alt="image" height="400" width="650" />
             <p>{details.explanation}</p>
-            <p>Copyright: {details.copyright} {details.date}</p>
-            
+            <p>
+              {details.copyright} {details.date}
+            </p>
           </div>
         </div>
-        
       </div>
     );
   }
