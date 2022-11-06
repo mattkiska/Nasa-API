@@ -9,7 +9,7 @@ function ImageSearch() {
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(
-        `https://images-api.nasa.gov/search?q=`
+        `https://images-api.nasa.gov/search?q=${searchedImage}`
       );
       // Set state of Data
       setNasaImage(response.data);

@@ -1,6 +1,7 @@
 html {
-  background-color: darkslateblue;
+  background-color: white;
   font-family: 'Space Mono', monospace;
+  color: #0B3D91;
 }
 .App {
   text-align: center;
@@ -12,7 +13,7 @@ html {
 }
 .navLink {
   text-decoration: none;
-  color: blue;
+  color: white;
   font-weight: bolder;
   font-family: 'Space Mono', monospace;
 
@@ -28,8 +29,10 @@ html {
   
 }
 .header{
-  background-color: darkgray;
+  background-image: url('https://www.nasa.gov/sites/default/files/thumbnails/image/web_first_images_release.png');
   font-family: 'Space Mono', monospace;
+  background-size: cover;
+  color: #FC3D21;
 }
 .image-container {
   margin: 30px;

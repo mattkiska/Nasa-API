@@ -35,6 +35,7 @@ function Details() {
     return (
       <div>
         <h2></h2>
+        <div className="datePicker">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
             label="Enter Date"
@@ -45,6 +46,7 @@ function Details() {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
+        </div>
         <div className="image-container">
           <div>
             <h2>{details.title}</h2>
