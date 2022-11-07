@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 function ImageSearch() {
   const [nasaImage, setNasaImage] = useState({});
   const [search, setSearch] = useState("");
+  const [searchItems, setSearchItems] = useState([]);
 
   const color = "white";
   const border = "1px solid white";
@@ -14,24 +15,37 @@ function ImageSearch() {
   // Call axios function
 
   useEffect(() => {
-    const getData = async () => {
+    if (search.length > 0) {
+      getData();
+    }
+  }, [search]);
+  console.log(nasaImage);
+
+  async function getData() {
+    try {
       const response = await axios.get(
         `https://images-api.nasa.gov/search?q=${search}`
       );
-      // Set state of Data
       setNasaImage(response.data);
-    };
-    getData();
-  }, []);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    if (nasaImage.collection) {
+      setSearchItems(nasaImage.collection.items);
+    }
+  }, [nasaImage]);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
-    event.preventDefault();
     console.log("value is:", event.target.value);
   };
+
   const handleSubmit = (event) => {
-    event.preventDefault()
-  }
+    event.preventDefault();
+  };
 
   return (
     <div>
@@ -47,6 +61,7 @@ function ImageSearch() {
           onSubmit={handleSubmit}
         >
           <TextField
+            type="text"
             id="search"
             label="search here"
             variant="outlined"
@@ -60,11 +75,22 @@ function ImageSearch() {
               border: { border },
             }}
           />
+          {searchItems.map((item)=>{
+            if (item && item.links && item.links[0] && item.links[0].href) {
+            return (
+          <div>
+            <img src={item.links[0].href} alt="nasa" />
+          </div>
+            )
+            }
+          })}
+          
         </Box>
+        
       </div>
 
       <div className="searchResults">
-        <h3>{search.url}</h3>
+        
       </div>
     </div>
   );
