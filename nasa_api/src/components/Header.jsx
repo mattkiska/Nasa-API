@@ -4,7 +4,7 @@ import Nav from './Nav'
 function Header() {
   return (
     <div className="header">
-      <h1> Nasa Api </h1>
+      <h1> NASA API </h1>
       <Nav />
     </div>
   )

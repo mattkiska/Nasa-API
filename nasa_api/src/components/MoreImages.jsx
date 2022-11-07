@@ -13,7 +13,7 @@ function Details() {
   // Create state for our data
   const [details, setDetails] = useState(null);
   const [date, setDate] = useState("2022-05-01");
-
+  const color = "white"
   // Call axios function
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function Details() {
   // Call Guard operator to protect from loading errors
 
   if (!details) {
-    return <h2> Loading please wait</h2>;
+    return <h2> Loading please wait </h2>;
   } else {
     return (
       <div>
@@ -43,7 +43,14 @@ function Details() {
             onChange={(date) => {
               setDate(date.format("YYYY-MM-DD").toString());
             }}
-            renderInput={(params) => <TextField {...params} />}
+            renderInput={(params) => 
+            <TextField
+              {...params} 
+              sx={{
+                svg: { color },
+                input: { color },
+                label: { color },
+              }}/>}
           />
         </LocalizationProvider>
         </div>
