@@ -16,19 +16,18 @@ function ImageSearch() {
 
   useEffect(() => {
     if (search.length > 0) {
-      getData();
+      getData()
     }
-  }, [search]);
-  console.log(nasaImage);
+  }, [search])
 
   async function getData() {
     try {
       const response = await axios.get(
         `https://images-api.nasa.gov/search?q=${search}`
       );
-      setNasaImage(response.data);
+      setNasaImage(response.data)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
@@ -36,11 +35,11 @@ function ImageSearch() {
     if (nasaImage.collection) {
       setSearchItems(nasaImage.collection.items);
     }
+    console.log(nasaImage.collection.items)
   }, [nasaImage]);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
-    console.log("value is:", event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -75,23 +74,22 @@ function ImageSearch() {
               border: { border },
             }}
           />
-          {searchItems.map((item)=>{
-            if (item && item.links && item.links[0] && item.links[0].href) {
-            return (
-          <div>
-            <img src={item.links[0].href} alt="nasa" />
-          </div>
-            )
-            }
-          })}
           
         </Box>
-        
       </div>
 
-      <div className="searchResults">
-        
-      </div>
+      <div className="searchResults"></div>
+      {searchItems.map((item) => {
+            if (item && item.links && item.links[0] && item.links[0].href) {
+              return (
+                <div className="card">
+                  <img src={item.links[0].href} alt="nasa" width="350px" height="250px"/>
+                  <p>{item.data[0].title}</p>
+                  <p>{item.data[0].description}</p>
+                </div>
+              );
+            }
+          })}
     </div>
   );
 }
