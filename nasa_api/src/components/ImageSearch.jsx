@@ -35,7 +35,6 @@ function ImageSearch() {
     if (nasaImage.collection) {
       setSearchItems(nasaImage.collection.items);
     }
-    console.log(nasaImage.collection.items)
   }, [nasaImage]);
 
   const handleChange = (event) => {
@@ -82,9 +81,10 @@ function ImageSearch() {
       {searchItems.map((item) => {
             if (item && item.links && item.links[0] && item.links[0].href) {
               return (
-                <div className="card">
-                  <img src={item.links[0].href} alt="nasa" width="350px" height="250px"/>
-                  <p>{item.data[0].title}</p>
+                <div className="card"
+                key={item.href}>
+                  <img src={item.links[0].href} alt="nasa" width="450px" height="300px"/>
+                  <h2>{item.data[0].title}</h2>
                   <p>{item.data[0].description}</p>
                 </div>
               );
