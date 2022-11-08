@@ -2,7 +2,6 @@ html {
   background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80');
   font-family: 'Space Mono', monospace;
   color: white;
-  background-size: cover;
 }
 .App {
   text-align: center;
