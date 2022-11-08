@@ -35,6 +35,7 @@ function ImageSearch() {
     if (nasaImage.collection) {
       setSearchItems(nasaImage.collection.items);
     }
+    console.log(nasaImage.collection.items)
   }, [nasaImage]);
 
   const handleChange = (event) => {

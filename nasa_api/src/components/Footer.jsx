@@ -30,8 +30,8 @@ export default function Footer() {
     >
       <Container maxWidth="sm">
         <Typography variant="body1">
-          <ul class="links">
-            <li class="nasalogo" id="footerlinks">
+          <ul className="links">
+            <li className="nasalogo" id="footerlinks">
               <a href="/">
                 <img
                   src="https://i1.sndcdn.com/avatars-JUvAAPvAA86fmbVE-SH0i6g-t500x500.jpg"
@@ -41,7 +41,7 @@ export default function Footer() {
                 />
               </a>
             </li>
-            <li class="github" id="footerlinks">
+            <li className="github" id="footerlinks">
               <a href="https://github.com/mattkiska">
                 <img
                   src="https://avatars.githubusercontent.com/u/9919?s=280&v=4"
@@ -50,8 +50,8 @@ export default function Footer() {
                 />
               </a>
             </li>
-            <li class="linkedin" id="footerlinks">
-              <a href="https://www.linkedin.com/in/matt-kiska-7b5725219/">
+            <li className="linkedin" id="footerlinks">
+              <a href="https://www.linkedin.com/in/matt-kiska">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/49/49408.png"
                   height="55"
