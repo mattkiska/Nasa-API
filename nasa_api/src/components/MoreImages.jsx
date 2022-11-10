@@ -1,18 +1,18 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import TextField from "@mui/material/TextField";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import React from "react"
+import { useState, useEffect } from "react"
+import axios from "axios"
+import TextField from "@mui/material/TextField"
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
+import { DatePicker } from "@mui/x-date-pickers/DatePicker"
 
-const nasaEndpoint = process.env.REACT_APP_NASA_ENDPOINT;
-const nasaApiKey = process.env.REACT_APP_NASA_API_KEY;
+const nasaEndpoint = process.env.REACT_APP_NASA_ENDPOINT
+const nasaApiKey = process.env.REACT_APP_NASA_API_KEY
 
 function Details() {
   // Create state for our data
-  const [details, setDetails] = useState(null);
-  const [date, setDate] = useState("2022-05-01");
+  const [details, setDetails] = useState(null)
+  const [date, setDate] = useState("2022-05-01")
   const color = "white"
   // Call axios function
 
@@ -20,17 +20,17 @@ function Details() {
     const getData = async () => {
       const response = await axios.get(
         `${nasaEndpoint}planetary/apod?api_key=${nasaApiKey}&date=${date}`
-      );
-      setDetails(response.data);
+      )
+      setDetails(response.data)
     };
 
-    getData();
-  }, [date]);
+    getData()
+  }, [date])
 
   // Call Guard operator to protect from loading errors
 
   if (!details) {
-    return <h2> Loading please wait </h2>;
+    return <h2> Loading please wait </h2>
   } else {
     return (
       <div>

@@ -1,8 +1,8 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import MoreImages from "./MoreImages";
-import ImageSearch from "./ImageSearch";
+import React from "react"
+import { Route, Routes } from "react-router-dom"
+import Home from "./Home"
+import MoreImages from "./MoreImages"
+import ImageSearch from "./ImageSearch"
 
 function Main() {
   return (

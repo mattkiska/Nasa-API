@@ -1,16 +1,16 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+import React from "react"
+import { useState, useEffect } from "react"
+import axios from "axios"
+import Box from "@mui/material/Box"
+import TextField from "@mui/material/TextField"
 
 function ImageSearch() {
-  const [nasaImage, setNasaImage] = useState({});
-  const [search, setSearch] = useState("");
-  const [searchItems, setSearchItems] = useState([]);
+  const [nasaImage, setNasaImage] = useState({})
+  const [search, setSearch] = useState("")
+  const [searchItems, setSearchItems] = useState([])
 
-  const color = "white";
-  const border = "1px solid white";
+  const color = "white"
+  const border = "1px solid white"
 
   // Call axios function
 
@@ -93,4 +93,4 @@ function ImageSearch() {
     </div>
   );
 }
-export default ImageSearch;
+export default ImageSearch

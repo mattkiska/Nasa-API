@@ -1,8 +1,8 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
+import * as React from "react"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import Container from "@mui/material/Container"
+import Link from "@mui/material/Link"
 
 function Copyright() {
   return (
@@ -14,7 +14,7 @@ function Copyright() {
       {new Date().getFullYear()}
       {"."}
     </Typography>
-  );
+  )
 }
 
 export default function Footer() {
@@ -63,5 +63,5 @@ export default function Footer() {
         <Copyright />
       </Container>
     </Box>
-  );
+  )
 }

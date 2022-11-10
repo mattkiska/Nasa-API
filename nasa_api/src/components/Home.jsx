@@ -1,6 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react"
+import { useState, useEffect } from "react"
+import axios from "axios"
 
 function Home() {
   const [imageOfDay, setImageOfDay] = useState({});
@@ -12,10 +12,10 @@ function Home() {
         `https://api.nasa.gov/planetary/apod?api_key=nhOsVQVOsPxhFgDCWhJ0yiZSmlVlZnhXdaM7Ype0`
       );
       // Set state of Data
-      setImageOfDay(response.data);
+      setImageOfDay(response.data)
     };
-    getData();
-  }, []);
+    getData()
+  }, [])
 
   return (
     <div>
